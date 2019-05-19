@@ -47,3 +47,24 @@ ES5 -> ES6/2015 -> ES7/ES2016 -> ES8/2017
 
 
 ## Variables and data types
+- Variables are like a container to store the value to be used later.
+- It stores the value in memory of a computer.
+Eg: var name = 'meg';
+
+## Primitive (non-object) data types
+5 types
+
+- number -> floating point no., for decimals and integers. In JS, every no. is a floating point no. Eg: 5 is 5.0 in javascript. So even though if a no. is an integer its transformed to floating no. in javascript. This makes javascript different from other programming language, which has diff data types for integers and decimals. 
+
+- string -> sequence of characters, used for text.
+
+- boolean -> logical data type that can only be `true` or `false`.
+
+- undefined -> data type of a variable that doesnt has a value yet.
+
+- null -> also means 'non-existent', but explicitely given no value.
+
+Javascript has `dynamic typing`. So we dont manually assign data types to variables, JS automatically assigns type to variables. If a variable is reassigned a value with diff data type, its type is aslo changed without throwing any error.
+
+
+## Variable mutation and type coercion
