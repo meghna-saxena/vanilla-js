@@ -212,14 +212,14 @@ ________________
 
 ## Function statements and expressions
 
-Function declaration
+> Function declaration
 ```
 function whatDoYouDo(job, firstName) {
     ...
 }
 ```
 
-Function expression
+> Function expression
 ```
 var whatDoYouDo = function(job, firstName) {
     switch(job) {
@@ -237,3 +237,42 @@ console.log(whatDoYouDo('teacher', 'John'));
 console.log(whatDoYouDo('designer', 'Jane'));
 console.log(whatDoYouDo('retired', 'Mark'));
 ```
+
+*Note:*
+
+```
+ switch(job) {
+        case 'teacher':
+            return firstName + ' teaches kids how to code';
+        case 'driver':
+            return firstName + ' drives a cab in Lisbon.'
+        case 'designer':
+            return firstName + ' designs beautiful websites';
+        default:
+            return firstName + ' does something else';
+    }
+```
+
+when we return in switch cases, we can avoid using `break`, since `return` stop the further execution of the code, it immediately finishes the function.
+
+When statement doesnt return anything it is undefined.
+
+if (true) {
+    console.log(23);
+}
+
+// 23
+//undefined, since the statment doesn't returns anything
+
+
+The function expression is when you use the function keyword inside an expression, for example
+
+```
+var funcExp = function() {
+    console.log("This is function expression");
+}
+```
+
+> `In Javascript functions don't return void. If you don't specify what to return from a function it will return undefined.`    
+
+## Arrays
