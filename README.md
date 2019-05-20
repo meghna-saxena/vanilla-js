@@ -276,3 +276,45 @@ var funcExp = function() {
 > `In Javascript functions don't return void. If you don't specify what to return from a function it will return undefined.`    
 
 ## Arrays
+
+- Collection of items
+
+Initialize new array
+- 2 ways: 
+
+        - var names = ['John', 'Mark', 'Jane'];
+        - var years = new Array(1990, 1969, 1948);
+
+console.log(names[2]);
+console.log(names.length);
+
+Mutate array data
+
+```
+names[1] = 'Ben';
+names[names.length] = 'Mary';
+console.log(names);
+```
+
+Different data types
+
+```
+var john = ['John', 'Smith', 1990, 'designer', false];
+
+john.push('blue');
+john.unshift('Mr.');
+console.log(john);
+
+john.pop();
+john.shift();
+console.log(john);
+
+console.log(john.indexOf(23));
+
+var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
+
+console.log(isDesigner);
+```
+
+> Note:
+`indexOf item which is not in an array is -1` 
