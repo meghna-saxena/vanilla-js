@@ -190,3 +190,20 @@ both of these will return true because two equal operators does `type coercion`.
 
 
 ## Functions
+
+- If we have to do repetitive task, due to DRY priniciple put it in a function.
+
+Difference b/w arguments and parameters
+
+Arguments are passed to a function during its invocation by the caller. Parameters are defined in the function signature. Sonarguments are mapped to parameters during runtime.
+
+```
+function calcAge(yearOfBirth){
+....
+}
+var birthYear = 1990;
+calcAge(birthYear);
+
+```
+
+In the above `birthYear is the argument` and `yearOfBirth is the function parameter` local to calcAge.
