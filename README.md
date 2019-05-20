@@ -318,3 +318,50 @@ console.log(isDesigner);
 
 > Note:
 `indexOf item which is not in an array is -1` 
+
+## Objects and properties
+
+- key-value pairs
+- difference b/w arrays and object, in objects `order/index` doesnt matter.
+
+> Create new Object literal
+
+```
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher',
+    isMarried: false
+};
+```
+
+3 ways of accessing object: 
+
+```
+console.log(john.firstName);
+console.log(john['lastName']);
+
+var x = 'birthYear';
+console.log(john[x]);
+```
+
+Mutation
+```
+john.job = 'designer'; 
+john['isMarried'] = true;
+console.log(john);
+```
+
+New Object syntax
+
+```
+var jane = new Object();
+
+jane.firstName = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] = 'Smith';
+
+console.log(jane);
+```
