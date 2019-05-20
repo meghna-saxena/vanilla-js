@@ -187,3 +187,6 @@ This will return false because '3'  is a string and will not be converted. Now, 
 
 3 == '3'
 both of these will return true because two equal operators does `type coercion`. It just cares with the value, not the type.
+
+
+## Functions
