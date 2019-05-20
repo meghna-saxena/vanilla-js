@@ -68,3 +68,28 @@ Javascript has `dynamic typing`. So we dont manually assign data types to variab
 
 
 ## Variable mutation and type coercion
+
+Eg: 
+```
+var firstName = 'John'
+var age = 28
+
+console.log(firstName + '' + age) // John 28
+```
+Here, age although being of type number coerces to string due to concatenation.
+
+- Declare variables in one line :
+
+```
+var job, isMarried; 
+//declared variables but the value is undefined.
+
+job = 'teacher';
+isMarried = false;
+```
+
+- `alert` open a pop-up widnow with ok btn
+- `prompt` open a pop-up window with an input field, where user enters info and that can be either logged on console or printed on the screen.
+
+
+## Operator precendence
