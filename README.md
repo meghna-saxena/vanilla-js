@@ -93,3 +93,76 @@ isMarried = false;
 
 
 ## Operator precendence
+```
+() grouping
++ -  * /
+>= / <=
+```
+
+More operators:
+
+```
+ x = x + 1;
+ x += 1;
+ x++; (adds one unit)
+ ```
+
+
+ ## Switch vs if/else
+
+ In switch statemetn write what you want to test.
+
+ Eg:
+
+ ```
+ var start = new Date().getTime();
+for (i = 0; i < 100000000; i++) {
+	var a = i % 10;
+        var b;
+    if (a = 0) {
+        b = i + 1;
+    } else if (a = 1) {
+        b = i + 3;
+    } else if (a = 2) {
+        b = i + 9;
+    } else if (a = 3) {
+        b = i + 2;
+    } else if (a = 4) {
+        b = i + 33;
+    } else if (a = 5) {
+        b = i + 4;
+    } else if (a = 6) {
+        b = i + 66;
+    } else if (a = 7) {
+        b = i + 2;
+    } else if (a = 8) {
+        b = i + 5;
+    } else if (a = 9) {
+        b = i + 19;
+    }
+}
+var end = new Date().getTime();
+console.log(end - start);
+```
+
+````
+var start = new Date().getTime();
+for (i = 0; i < 100000000; i++) {
+	var a = i % 10;
+        var b;
+        switch(a) {
+ 		case 0: b = i + 1; break;
+ 		case 1: b = i + 3; break;
+ 		case 2: b = i + 9; break;
+ 		case 3: b = i + 2; break;
+ 		case 4: b = i + 33; break;
+ 		case 5: b = i + 4; break;
+ 		case 6: b = i + 66; break;
+ 		case 7: b = i + 2; break;
+ 		case 8: b = i + 5; break;
+ 		case 9: b = i + 19; break;
+	};
+}
+var end = new Date().getTime();
+console.log(end - start);
+```
