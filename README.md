@@ -143,9 +143,9 @@ for (i = 0; i < 100000000; i++) {
 }
 var end = new Date().getTime();
 console.log(end - start);
-```
 
-````
+OR
+
 var start = new Date().getTime();
 for (i = 0; i < 100000000; i++) {
 	var a = i % 10;
@@ -166,3 +166,24 @@ for (i = 0; i < 100000000; i++) {
 var end = new Date().getTime();
 console.log(end - start);
 ```
+
+## Truthy & falsy values
+
+Falsy values: Evaluted to false in if/else condition.
+`undefined, null, '', 0, NaN`
+
+Truthy values: All values that are not falsy.
+
+Note:
+`===` is the strict operator, it will not do type conversion, so if we do:
+
+3 === 3
+This will return true that they're equal because they're both numbers, but if we do:
+
+3 === '3'
+This will return false because '3'  is a string and will not be converted. Now, if we use:
+
+3 == 3  or
+
+3 == '3'
+both of these will return true because two equal operators does `type coercion`. It just cares with the value, not the type.
