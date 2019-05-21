@@ -324,3 +324,22 @@ if (john.average > mark.average) {
 } else if (mark.average > john.average) {
     console.log(mark.fullName + '\'s family pays higher tips, with an average of $' + mark.average);
 }
+
+
+/* prints
+
+{ fullName: 'John Smith',
+  bills: [ 124, 48, 268, 180, 42 ],
+  calcTips: [Function: calcTips],
+  tips: [ 18.599999999999998, 9.600000000000001, 26.8, 27, 8.4 ],
+  finalValues: [ 142.6, 57.6, 294.8, 207, 50.4 ],
+  average: 18.080000000000002 }
+{ fullName: 'Mark Miller',
+  bills: [ 77, 475, 110, 45 ],
+  calcTips: [Function: calcTips],
+  tips: [ 15.4, 118.75, 11, 9 ],
+  finalValues: [ 92.4, 593.75, 121, 54 ],
+  average: 38.5375 }
+Mark Miller's family pays higher tips, with an average of $38.5375
+
+*/
