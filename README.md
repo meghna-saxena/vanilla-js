@@ -644,3 +644,51 @@ if (john.average > mark.average) {
 Mark Miller's family pays higher tips, with an average of $38.5375
 
 ```
+
+______________
+
+## How JavaScript works behind the scenes
+
+### How Javascript code is executed: Javascript parsers and engines
+
+Javascript is `hosted in some environment, most typically a browser`. There can be other hosts, eg: node.js web server etc.
+
+Javascript host (browser) has `javascript` engine which takes code and execute it.
+
+Javascript engine is a program that executes js code.
+Many engines like `google v8 engine`.
+
+- `First thing that happened inside the engine is` - code is parsed by a `parser` which basically reads code line-by-line and checks the syntax -> if something is wrong parser stop execution, and if syntax is right: 
+    - Parser creates `abstract syntax tree` which is then ..
+    - translated into `machine code`, so its converted into set of instructions that can be executed directly by the computer.
+    - When js code is converted into machine code, then only it `actually runs` and does it work.
+
+"Let's meet the cast of characters that interact to process the program var a = 2;, so we understand their conversations that we'll listen in on shortly:
+
+Engine: responsible for start-to-finish compilation and execution of our JavaScript program.
+
+Compiler: one of Engine's friends; handles all the dirty work of parsing and code-generation (see previous section).
+
+Scope: another friend of Engine; collects and maintains a look-up list of all the declared identifiers (variables), and enforces a strict set of rules as to how these are accessible to currently executing code."
+
+Now let's see how that came about:
+
+JS didn’t need to be terribly fast for a long time (performance isn’t a huge concern when interpreting little scripts on a web page), so simply being interpreted was fine. Once performance did become a concern (Google Maps being obvious example), most newer engines switched to using a JIT compiler that actually compiles the code (either to intermediate byte code or directly to machine instructions). Compiled code is much faster - there’s a hit at the start as the program compiles, but after that performance is much improved. e.g. V8 has two compilers, one that runs straightaway and produces code very quickly, then an optimising compiler which recompiles certain parts of the code to make it more efficient (plus a decompiler which will reverse the compilation made by the optimising compiler if needed).
+
+Note there are a load of tiny JS engines used for embedding in other software in which the JS is just interpreted - they need to be very lightweight so don’t bother with the beefy, complex JIT code - they’re just there to give scripting capabilities.
+
+This is all effectively an implementation detail - you treat JS as if it’s an interpreted language, the fact it is compiled at runtime makes no difference to you actually writing the code - eg.
+
+You write your code.
+
+Then you hit run.
+
+Then the compiler compiles your code, a.k.a turn it into machine code.
+
+> Extra note: JavaScript engine for Chrome, the V8 Engine, is coded in C++.
+
+Every web browser has a piece of software within it called a JavaScript (JS) engine. Chrome's is called V8, Firefox is called SpiderMonkey and Safari's is called Nitro etc.
+
+______________
+
+## Execution Contexts and Execution Stack
