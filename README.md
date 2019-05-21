@@ -438,4 +438,9 @@ var tipCalculator = function(bill)
 console.log(tipCalculator(150)); // 22.5
 ```
 
+_______________
+
 ## Loops and iterations
+
+- Controlled structures
+    - If/else is an example of it, similarly loops are a controlled structure.
