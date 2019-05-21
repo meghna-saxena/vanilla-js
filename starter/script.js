@@ -118,7 +118,7 @@ function tipCalculator(bill) {
     } else {
         percentage = .1;
     }
-    return percentage * bill;
+    return (percentage * bill).toFixed(2);
 }
 
 var bills = [124, 48, 268];
@@ -133,3 +133,19 @@ var finalValues = [
     bills[2] + tips[2]
 ];
 console.log(tips, finalValues);
+
+
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1992,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher',
+    isMarried: false,
+    calcAge: function() {
+        this.age = 2018 - this.birthYear;
+    }
+};
+
+john.calcAge();
+console.log('Objects and methods', john);

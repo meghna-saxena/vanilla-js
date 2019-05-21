@@ -273,6 +273,8 @@ var funcExp = function() {
 }
 ```
 
+Function expression is a func without a name, which is passed some args, and this func is assigned to a variable.
+
 > `In Javascript functions don't return void. If you don't specify what to return from a function it will return undefined.`    
 
 ## Arrays
@@ -364,4 +366,74 @@ jane.birthYear = 1969;
 jane['lastName'] = 'Smith';
 
 console.log(jane);
+```
+
+## Objects and methods
+
+- Functions attached to objects are k/a methods.
+
+```
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1992,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher',
+    isMarried: false,
+    calcAge: function() { //function expression
+        this.age = 2018 - this.birthYear;
+    }
+};
+
+john.calcAge();
+
+or
+
+john.age = john.calcAge(); 
+
+//then we can remove this.age from inside the function
+
+console.log(john);
+
+// { firstName: 'John',
+  lastName: 'Smith',
+  birthYear: 1992,
+  family: [ 'Jane', 'Mark', 'Bob', 'Emily' ],
+  job: 'teacher',
+  isMarried: false,
+  calcAge: [Function: calcAge],
+  age: 26 }
+```
+
+I guess, you are confused with this statement.
+
+this.age = 2018 - this.birthYear;
+
+
+In the above example. JavaScript will search for the variable `age` when you execute above instruction. If it is unable to  find the age in the respective object, JavaScript creates that variable and then assigns the values to it.
+
+> Note:
+Arrays are also objects, since they also have methods of their own, eg: push(), pop() etc.  
+
+- Javascript gives every object a special keyword `this`. 
+- `this` means the current object being used.
+
+Practicing switch statements:
+
+```
+var tipCalculator = function(bill)
+{
+    switch(true) {
+        case bill < 50:
+            return bill * 0.2;
+        case bill >= 50 && bill <= 200:
+            return bill * 0.15;
+        case bill > 200:
+            return bill * 0.1;
+        default:
+            return bill;
+    }
+}
+ 
+console.log(tipCalculator(150)); // 22.5
 ```
