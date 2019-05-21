@@ -741,11 +741,11 @@ first();
 
 ## Execution Context in detail: Creation and Execution Phase
 
-- We can associate Execution context with an object.
-    - This object has 3 properties:
-        - Variable Object (VO) which will contain function arguments, function decalrations and variable declarations.
-        - Scope chain which contains current variable of the object as well as variables of it parent.
-        - `this` variable.
+- We can associate `Execution context` with an object.
+    - This object has `3 properties`:
+        1. `Variable Object (VO)` which will contain function arguments, function decalrations and variable declarations.
+        2. `Scope chain` which contains current variable of the object as well as variables of it parent.
+        3. `this` variable.
 
 > How execution context is formed?
 - When a function is called, an execution context is created and put on top of the execution stack, and this happens in phases:
@@ -758,3 +758,16 @@ first();
     - Execution phase
         - The code of the function that generated the current execution context is ran line-by-line.
 
+___________
+
+## Creation phase:
+
+### The Variable Object (VO)
+
+- The `argument object` is created, containing all the args that were passed into a function.
+- The code is scanned for `function declarations`: for each function, a property is created in the Variable Object, pointing to the function.
+- The code is scanned for `variable declarations`: for each variable, a property is created in the Variable Object, and set to undefined.
+
+The last wo poins are k/a hoisting. Functions and variables are hoisted in javascript, which means they are available before the execution actually starts.
+
+They are hoisted differently though, functions are already defined before the execution phase starts while variables are set to undefined, and will only be defined in execution phase.
