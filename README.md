@@ -437,3 +437,5 @@ var tipCalculator = function(bill)
  
 console.log(tipCalculator(150)); // 22.5
 ```
+
+## Loops and iterations
