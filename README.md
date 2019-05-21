@@ -738,3 +738,23 @@ first();
 - Each time a function is called, it gets a new `execution context`.
 
 - New context is put on top of current context -> this is k/a `execution stack` Whenever a new function is called a new `execution context` is created and when the function returns, the `execution context` is popped off the `execution stack`
+
+## Execution Context in detail: Creation and Execution Phase
+
+- We can associate Execution context with an object.
+    - This object has 3 properties:
+        - Variable Object (VO) which will contain function arguments, function decalrations and variable declarations.
+        - Scope chain which contains current variable of the object as well as variables of it parent.
+        - `this` variable.
+
+> How execution context is formed?
+- When a function is called, an execution context is created and put on top of the execution stack, and this happens in phases:
+
+    - Creation phase
+        - Creation of the variable object (VO).
+        - Creation of scope chain.
+        - Determine value of `this` variable.
+
+    - Execution phase
+        - The code of the function that generated the current execution context is ran line-by-line.
+
