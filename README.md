@@ -502,4 +502,32 @@ reverse designer
 reverse 1990
 reverse Smith
 reverse John
+
 ```
+_____________
+
+## Short history of Javascript
+
+- 1996 -> Changed from livescript to javascript to attract java developers. JS has nothing to do with Java.
+
+- 1997 -> ES1 (ECMAScript 1) became the first version of JS language standard:
+    - ECMAScript: The langauge standard.
+    - JavaScript: The language in practice.
+
+- 2009 -> ES5 (ECMAScript 5) was released w/ lots of new features.
+
+- 2015 -> ES6/ES2015 (ECMAScript 2015) was released: the biggest update to language ever!
+
+- 2015 -> Changed to `annual release cycle`.
+
+- All the future versions ES9/ES10.. are called ESNext
+
+
+## JavaScript today: which version to use?
+
+- ES5 -> Fully supported in all browsers. Ready to be used today.
+
+- ES6-ES10 -> Well-supported in all modern browsers. 
+    - `Not supported in older browsers. Can use most features in prod. while transpiling and polyfilling (converting to ES5).`
+
+_______________
