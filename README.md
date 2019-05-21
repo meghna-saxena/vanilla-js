@@ -692,3 +692,49 @@ Every web browser has a piece of software within it called a JavaScript (JS) eng
 ______________
 
 ## Execution Contexts and Execution Stack
+
+All js code needs to run in an environment and this environment is k/a `execution context`.
+
+- *Execution context:* Imagine it like a box, a container, or a wrapper which stores variables and in which a piece of our code code is evaluated  and executed. 
+
+- The default execution context is the `global execution context`.
+
+- `Code that's not inside any function, associated w/ the global object`. In the browser, that's the `window object`.   
+
+> lastName === window.lastName //true
+
+Extra:
+Properties are variables attached to object.
+
+
+```
+var name = 'John';
+
+function first() {
+    var a = 'Hello';
+    second();
+    var x = a + name;
+}
+
+function second() {
+    var b = 'Hi';
+    third();
+    var z = b + name;
+}
+
+function third() {
+    var c = 'Hey';
+    var z = c + name;
+}
+
+first();
+
+```
+
+// first method will be called, second will be called, third will be called, third will return its value and pop off the stack, then second will return and pop off the stack, then first will return, and clear the stack.
+
+- `Global execution context` is for code that is not inside any function.
+
+- Each time a function is called, it gets a new `execution context`.
+
+- New context is put on top of current context -> this is k/a `execution stack` Whenever a new function is called a new `execution context` is created and when the function returns, the `execution context` is popped off the `execution stack`
