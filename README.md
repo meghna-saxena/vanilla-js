@@ -739,7 +739,8 @@ first();
 
 - New context is put on top of current context -> this is k/a `execution stack` Whenever a new function is called a new `execution context` is created and when the function returns, the `execution context` is popped off the `execution stack`
 
-## Execution Context in detail: Creation and Execution Phase
+_____________
+## Execution Context in detail: Creation and Execution Phase and Hoisting
 
 - We can associate `Execution context` with an object.
     - This object has `3 properties`:
@@ -771,3 +772,47 @@ ___________
 The last wo poins are k/a hoisting. Functions and variables are hoisted in javascript, which means they are available before the execution actually starts.
 
 They are hoisted differently though, functions are already defined before the execution phase starts while variables are set to undefined, and will only be defined in execution phase.
+
+
+## Hoisting in practice
+
+```
+// functions
+
+calculateAge(1965);
+
+function calculateAge(year) {
+    console.log(2016 - year);
+}
+
+*function declaration works! *
+
+
+retirement(1956); 
+
+// *function expression doesn't work. Variable is hoisted but function is not assigned.
+// Uncaught TypeError: retirement is not a function
+
+var retirement = function(year) {
+    console.log(65 - (2016 - year));
+}
+
+// variables
+
+console.log(age);
+var age = 23;
+
+function foo() {
+    console.log(age);
+    var age = 65;
+    console.log(age);
+}
+
+foo();
+
+console.log(age); 
+//23, undefined, 65 
+
+prints undefined instead of 23 from global scope, because inside the function hositing occurs, since already a variable named age was present, so it was hoisted and the value was set to undefined. If inside the function, the varibale name was not similar, then it would have printed 23.
+    
+```
