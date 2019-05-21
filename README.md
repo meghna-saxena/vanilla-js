@@ -444,3 +444,11 @@ _______________
 
 - Controlled structures
     - If/else is an example of it, similarly loops are a controlled structure.
+    - Automate repetitive tasks using loops.
+
+```
+for (var i = 1; i <= 20; i += 2) { // i = i + 2
+    console.log(i);
+} 
+// 1, 3, 5, 7, 9, 11, 13, 15, 17, 19
+```

@@ -173,3 +173,14 @@ if (john.calcBMI() > mark.calcBMI()) {
 } else {
     console.log('They have the same BMI');
 }
+
+
+/***************** 
+* LOOPS
+*/
+
+var john = ['John', 'Smith', 1990, 'designer', false, 'blue'];
+
+for (var i = 0; i < john.length; i++) {
+    console.log('for loop', john[i]);
+}
