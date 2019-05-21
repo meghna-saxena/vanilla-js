@@ -452,3 +452,54 @@ for (var i = 1; i <= 20; i += 2) { // i = i + 2
 } 
 // 1, 3, 5, 7, 9, 11, 13, 15, 17, 19
 ```
+
+- Difference b/w for and while loop:
+    - in while loop we only have condition.
+
+Example:
+
+```
+var john = ['John', 'Smith', 1990, 'designer', false, 'blue'];
+for (var i = 0; i < john.length; i++) {
+    console.log(john[i]);
+}
+
+// While loop
+var i = 0;
+while(i < john.length) {
+    console.log(john[i]);
+    i++;
+}
+```
+
+- `continue and break statements`
+    - `continue` is used to quit current iteration of the loop and continue to the next one.
+    - `break` is used to exit out of the loop.
+
+```
+for (var i = 0; i < john.length; i++) {
+    if (typeof john[i] !== 'string') continue;
+    console.log('continue', john[i]);
+}
+for (var i = 0; i < john.length; i++) {
+    if (typeof john[i] !== 'string') break;
+    console.log('break', john[i]);
+}
+// Looping backwards
+for (var i = john.length - 1; i >= 0; i--) {
+    console.log('reverse', john[i]);
+}
+
+// continue John
+continue Smith
+continue designer
+continue blue
+break John
+break Smith
+reverse blue
+reverse false
+reverse designer
+reverse 1990
+reverse Smith
+reverse John
+```

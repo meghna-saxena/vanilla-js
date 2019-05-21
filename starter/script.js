@@ -181,6 +181,45 @@ if (john.calcBMI() > mark.calcBMI()) {
 
 var john = ['John', 'Smith', 1990, 'designer', false, 'blue'];
 
+// for loop
 for (var i = 0; i < john.length; i++) {
     console.log('for loop', john[i]);
 }
+
+
+// While loop
+var i = 0;
+while(i < john.length) {
+    console.log(john[i]);
+    i++;
+}
+
+// continue and break statements
+
+for (var i = 0; i < john.length; i++) {
+    if (typeof john[i] !== 'string') continue;
+    console.log('continue', john[i]);
+}
+for (var i = 0; i < john.length; i++) {
+    if (typeof john[i] !== 'string') break;
+    console.log('break', john[i]);
+}
+// Looping backwards
+for (var i = john.length - 1; i >= 0; i--) {
+    console.log('reverse', john[i]);
+}
+ 
+/* logs
+continue John
+continue Smith
+continue designer
+continue blue
+break John
+break Smith
+reverse blue
+reverse false
+reverse designer
+reverse 1990
+reverse Smith
+reverse John
+*/
