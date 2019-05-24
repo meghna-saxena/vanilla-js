@@ -898,3 +898,34 @@ Global execution context -> Execution context first() -> Execution context secon
 Scope third() -> Scope second() -> Scope first() -> Global scope
 
 ```
+____________
+
+## The `this` Keyword
+
+
+> Execution context has 2 phases:
+
+- Creation phase
+    - variable object creation
+    - scope chain creation
+    - determining and setting the value of `this` keyword
+- Execution phase
+
+The `this` variable is a variable that each and every execution context gets and is stopred in execution context object.
+
+Where does the `this` keyword points?
+
+- *Regular function call:* the `this` keyword `points at the global object`, (the window object, in the browser).
+
+- *Method call:* the `this` variable points to the boject that is calling the method.
+    - Method is a func. attached to an object.
+
+
+> Note: The `this` keyword is not assigned a value until a funct. where it is defined is actually called.
+
+The this keyword is attached to execution context which is only created when a function is invoked/called.
+
+__________
+
+
+## The `this` keyword in practice:
