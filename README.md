@@ -816,3 +816,85 @@ console.log(age);
 prints undefined instead of 23 from global scope, because inside the function hositing occurs, since already a variable named age was present, so it was hoisted and the value was set to undefined. If inside the function, the varibale name was not similar, then it would have printed 23.
     
 ```
+____________
+
+## Scoping and Scope chain
+
+### Note:
+
+> Execution context object ->
+> - Variable object (VO)
+> - scope chain
+> - `this` variable
+
+Scoping answers the question "where can we access a ceratin variable or function?"
+
+In javascript, *each function creates a scope*: the space/ environment, in which the variables it defines are accessible.
+
+In other langauges, if blocks, for blockas and while blocks also creates scope, but not in javascript. In js, only func. creates a scope.
+
+`Lexical scoping:` a function that is lexically within another function get access to the scope of the outer function.
+
+Lexical means the position where something is written in our code.
+
+```
+var a = 'Hello';
+first();
+
+function first() {
+    var b = 'Hi';
+    second();
+
+    function second() {
+        var c = 'Hey';
+        console.log(a + b + c); // HelloHiHey
+    }
+}
+
+```
+
+Example of scope chain ^ (it goes from inwards/downwards to upwards..)
+Checks variable object in local scope, parent scope and global scope.
+
+
+## Execution stack vs Scope Chain
+
+
+```
+var a = 'Hello';
+first();
+
+function first() {
+    var b = 'Hi';
+    second();
+
+    function second() {
+        var c = 'Hey';
+        third(); 
+    }
+}
+
+function third() {
+    var d = 'John';
+    console.log(a + b + c + d); 
+}
+
+```
+
+`Execution stack` from downwards to upwards:
+`Order in which functions are called.`
+
+```
+
+Global execution context -> Execution context first() -> Execution context second() -> Execution context third()
+
+```
+
+`Scope Chain` from downwards to upwards:
+`Order in which functions are written lexically.`
+
+```
+
+Scope third() -> Scope second() -> Scope first() -> Global scope
+
+```
