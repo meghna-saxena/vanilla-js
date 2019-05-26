@@ -19,10 +19,31 @@ GAME RULES:
 // var roundScore = 0;
 // it is just one value, because one round score at a time
 
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, dice;
 
 scores = [0, 0];
 roundScore = 0;
 activePlayer = 0; //0 first player and 1 second player
 
 //in order to create dice, calculate random number.
+// get no. b/w 1-6
+
+// > Extra: Math.random() gives a random no. b/w 0-1
+
+// If we want value b/w 1-6, multiply Math.random() by 6
+// so Math.random() * 6 which gives value b/w 0-5. To get value b/w 1-6, add 1 to it; `(Math.random() * 6) + 1`
+
+// `Math.floor()` removes decimal point and give whole no.
+
+dice = Math.floor(Math.random() * 6) + 1;
+
+// The object that gives access to DOM is document object.
+
+// selects the first element it finds
+// here the element with the given id
+// to change the content of the element use `textContent` method
+
+// document.querySelector('#current-0').textContent = dice;
+
+// selecting the element dynamically
+document.querySelector('#current-' + activePlayer]).textContent = dice;

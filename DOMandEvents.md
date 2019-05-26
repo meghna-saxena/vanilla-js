@@ -33,8 +33,18 @@ So stepwise:
 
 __________________________
 
+What will you learn -
+
 - How to create fundamental game variables?
 - How to generate random number?
 - How to manipulate the DOM?
 - How to read from the DOM?
 - How to change CSS styles?
+
+
+> Extra: Math.random() gives a random no. b/w 0-1
+
+If we want value b/w 1-6, multiply Math.random() by 6
+so Math.random() * 6 which gives value b/w 0-5. To get value b/w 1-6, add 1 to it; `(Math.random() * 6) + 1`
+
+`Math.floor()` removes decimal point and give whole no.
