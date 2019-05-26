@@ -29,3 +29,12 @@ So stepwise:
 1.  `left: 50%;` Center the top left corner of element.
 
 2.  `transform: translateX(-50%);` Determine element width and move half of that width to the left.
+
+
+__________________________
+
+- How to create fundamental game variables?
+- How to generate random number?
+- How to manipulate the DOM?
+- How to read from the DOM?
+- How to change CSS styles?
