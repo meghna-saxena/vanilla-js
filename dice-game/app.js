@@ -44,4 +44,31 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     diceDOM.src = './images/dice-' + dice + '.png';
 
     // 3. Update the round score, only if the roll no. was not 1
+    if (dice !== 1) {
+        // add score
+        roundScore += dice;
+        // roundScore = roundScore + dice;
+
+        // display the result as current score
+        document.querySelector('#current-' + activePlayer).textContent = roundScore;
+    } else {
+        // next player
+        activePlayer = activePlayer === 0 ? 1 : 0;
+        roundScore = 0;
+
+        document.getElementById('current-0').textContent = 0;
+        document.getElementById('current-1').textContent = 0;
+
+        // removing and adding classes
+        // document.querySelector('.player-0-panel').classList.remove('active');
+        // document.querySelector('.player-1-panel').classList.add('active');
+
+        //toggle classes
+        document.querySelector('.player-0-panel').classList.toggle('active');
+        document.querySelector('.player-1-panel').classList.toggle('active');
+
+        // hide the dice when value = 1
+        document.querySelector('.dice').style.display = 'none';
+    }
 })
+

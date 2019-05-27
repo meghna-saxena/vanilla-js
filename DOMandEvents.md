@@ -181,3 +181,21 @@ Quirks:
 __________
 
 ## Updating score and changing the active player
+
+What you'll learn?
+- What the ternary operator is?
+- How to add/remove/toggle html classes?
+
+
+```
+
+//Removing and adding classes
+document.querySelector('.player-0-panel').classList.remove('active');
+
+document.querySelector('.player-1-panel').classList.add('active');
+
+//toggle classes
+document.querySelector('.player-0-panel').classList.toggle('active');
+document.querySelector('.player-1-panel').classList.toggle('active');
+
+```
