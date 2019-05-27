@@ -114,3 +114,46 @@ Rule: An `event` can `only be processed` as soon as the `execution stack is empt
 As soon as the execution stack is empty, the next event in the queue gets processed, so the event listener (function) is called; and since its a function it has its own execution context, which is then put on the top of the execution stack, and become the active execution context
 
 > Global execution context -> Execution context clickHandler() 
+_____________
+
+### What to learn?
+
+- How to set up an event handler?
+- What a callback function is?
+- What an anonymous function is?
+- Another way to select elements by ID
+- How to change the image in an <img> element?
+
+### Setup event handler
+1. Select the element in which event will happen
+2. Add event listener
+3. addEventListener() method receives 2 args, first one is event type, and second arg is the function which will be called as soon as the event happens
+
+```
+
+function btn() {
+   // do something
+};
+
+btn();
+
+document.querySelector('.btn-roll').addEventListener('click', btn)
+
+```
+Note: Write name of the func without parenthesis, because we're not calling it right here, we want event listener to call the function.
+
+So this btn function here is called `callback function`, because its a function that's not called by us, but by another function
+
+`Callback function is a func. that we pass as an arg to another func., and this other func then calls it for us.`
+
+What if we dont want external func that gets called by event listener, we can then use `anonymous func`
+
+```
+
+document.querySelector('.btn-roll').addEventListener('click', function () {
+    // do something
+})
+
+```
+
+`anonymous function` is a func. that doesn't have a name, and cannot be reused.

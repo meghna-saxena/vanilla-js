@@ -68,3 +68,29 @@ console.log(x);
 // use querySelector to change the css of some element
 
 document.querySelector('.dice').style.display = 'none';
+
+// setup event handler
+// first step, select the element in which event will happen
+// add event listener
+//addEventListener() method receives 2 args, first one is event type, and second arg is the function which will be called as soon as the event happens
+
+// function btn() {
+//     // do something
+// };
+
+// btn();
+
+// document.querySelector('.btn-roll').addEventListener('click', btn)
+
+// write name of the func without parenthesis, because we're not calling it right here, we want event listener to call the function.
+
+//So this btn function here is called 'callback function', because its a function that's not called by us, but by another function
+
+// callback function is a func. that we pass as an arg to another func., and this other func then calls it for us.
+
+//what if we dont want external func that gets called by event listener, we can then use anonymous func
+
+document.querySelector('.btn-roll').addEventListener('click', function () {
+    // do something
+})
+//anonymous func is a func. that doesn thave a name, and cannot be reused
