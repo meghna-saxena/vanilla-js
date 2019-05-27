@@ -83,3 +83,34 @@ console.log(x);
 ```
 document.querySelector('.dice').style.display = 'none';
 ```
+
+___________
+
+## Events and event handling
+
+- Events: Notifications that are sent to notify the code that something happened on the webpage.
+
+    - Example: clicking a button, resizing a window, scrolling down or pressing a key.
+
+- Event listener: A function that performs an action based on a certain event. It waits for a specific event to happen.
+
+## How events are processed?
+
+In javascript engine we have these things:
+    
+- Execution stack:
+stacks from bottom to top, executed as top to bottom (LIFO, last in first out)
+
+> Global execution context -> Execution context first() -> Execution context second()
+
+- Message Queue 
+It is the place where all the events wait in the browser for their turn to be processed in execution stack once its empty.
+
+stacks from left to right (FIFO, first in first out)
+> __ <- click event <- scroll event
+
+Rule: An `event` can `only be processed` as soon as the `execution stack is empty`, which means that all the functions have returned.
+
+As soon as the execution stack is empty, the next event in the queue gets processed, so the event listener (function) is called; and since its a function it has its own execution context, which is then put on the top of the execution stack, and become the active execution context
+
+> Global execution context -> Execution context clickHandler() 
