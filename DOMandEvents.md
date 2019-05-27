@@ -257,7 +257,8 @@ LEARN THIS TECHNIQUE:
 ```
 var scores = [0, 0] // global score
 
-// implementing hold event listener
+// implementing hold event listener and update the global score
+
 document.querySelector('.btn-hold').addEventListener('click', function () {
     // add CURRENT score to GLOBAL score
     scores[activePlayer] += roundScore;
@@ -266,9 +267,16 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     // update UI
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
-    nextPlayer();
-
     // check if player wins the game
+    if (scores[activePlayer] >= 20) {
+        document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+
+        document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+    } else {
+        nextPlayer();
+    }
 })
 
 function nextPlayer() {

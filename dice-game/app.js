@@ -33,7 +33,7 @@ document.getElementById('score-1').textContent = 0;
 document.getElementById('current-0').textContent = 0;
 document.getElementById('current-1').textContent = 0;
 
-// setting up event handler
+// setting up event handler to roll the dice and update the current score
 document.querySelector('.btn-roll').addEventListener('click', function () {
     // 1. random number
     var dice = Math.floor(Math.random() * 6) + 1;
@@ -56,7 +56,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     }
 })
 
-// implementing hold event listener
+// implementing hold event listener and update the global score
 document.querySelector('.btn-hold').addEventListener('click', function () {
     // add CURRENT score to GLOBAL score
     scores[activePlayer] += roundScore;
@@ -65,9 +65,16 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     // update UI
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
-    nextPlayer();
-
     // check if player wins the game
+    if (scores[activePlayer] >= 100) {
+        document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+
+        document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+    } else {
+        nextPlayer();
+    }
 })
 
 function nextPlayer() {
