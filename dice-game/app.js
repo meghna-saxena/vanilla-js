@@ -13,13 +13,13 @@ GAME RULES:
 // var score1 = 0;
 // var score2 = 0; 
 
-//But to make it look clearInterval, and use one variable set it as an array
+//But to make it look clear, and use one variable set it as an array
 
 // var scores = [0, 0];
 // var roundScore = 0;
 // it is just one value, because one round score at a time
 
-var scores, roundScore, activePlayer, dice;
+var scores, roundScore, activePlayer;
 
 scores = [0, 0];
 roundScore = 0;
@@ -35,7 +35,7 @@ activePlayer = 0; //0 first player and 1 second player
 
 // `Math.floor()` removes decimal point and give whole no.
 
-dice = Math.floor(Math.random() * 6) + 1;
+// dice = Math.floor(Math.random() * 6) + 1;
 
 // The object that gives access to DOM is document object.
 
@@ -46,7 +46,7 @@ dice = Math.floor(Math.random() * 6) + 1;
 // document.querySelector('#current-0').textContent = dice;
 
 // selecting the element dynamically
-document.querySelector('#current-' + activePlayer).textContent = dice;
+// document.querySelector('#current-' + activePlayer).textContent = dice;
 
 
 //the above can be k/a as 'setter', since here we're setting the value
@@ -60,14 +60,20 @@ document.querySelector('#current-' + activePlayer).textContent = dice;
 
 //storing the value of an element by selecting it, and assigning it to a variable
 
-var x = document.querySelector('#score-0').textContent;
-console.log(x);
+//var x = document.querySelector('#score-0').textContent;
 //the above can be k/a as 'getter', since here we're getting and reading the value
 
 
 // use querySelector to change the css of some element
 
 document.querySelector('.dice').style.display = 'none';
+
+// we dont use hash before the id, since it only accepts id
+// assigning initial value to current score and global score
+document.getElementById('score-0').textContent = 0;
+document.getElementById('score-1').textContent = 0;
+document.getElementById('current-0').textContent = 0;
+document.getElementById('current-1').textContent = 0;
 
 // setup event handler
 // first step, select the element in which event will happen
@@ -91,6 +97,14 @@ document.querySelector('.dice').style.display = 'none';
 //what if we dont want external func that gets called by event listener, we can then use anonymous func
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
-    // do something
+    // 1. random number
+    var dice = Math.floor(Math.random() * 6) + 1;
+
+    // 2. Display the result
+    var diceDOM = document.querySelector('.dice');
+    diceDOM.style.display = 'block';
+    diceDOM.src = 'dice-' + dice + '.png';
+
+    // 3. Update the round score, only if the roll no. was not 1
 })
 //anonymous func is a func. that doesn thave a name, and cannot be reused

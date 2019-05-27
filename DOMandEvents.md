@@ -157,3 +157,13 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 ```
 
 `anonymous function` is a func. that doesn't have a name, and cannot be reused.
+_______
+
+- Another way to select element `getElementById()`:
+Dont use hash before the id, since it only accepts id, so just name is enough
+
+`document.getElementById('score-0').textContent = 0;`
+
+Quirks:
+- Select the src attibute of img element
+ `diceDOM.src = 'dice-' + dice + '.png';`
