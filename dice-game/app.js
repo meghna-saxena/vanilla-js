@@ -46,4 +46,25 @@ dice = Math.floor(Math.random() * 6) + 1;
 // document.querySelector('#current-0').textContent = dice;
 
 // selecting the element dynamically
-document.querySelector('#current-' + activePlayer]).textContent = dice;
+document.querySelector('#current-' + activePlayer).textContent = dice;
+
+
+//the above can be k/a as 'setter', since here we're setting the value
+
+// to change the content of html element, there are 2 ways:
+
+// 1. textContent, which changes to plain text
+//2. innerHTML, for putting some html also in the content. We need to write the content in quotes (''), otherwise javascript parser will think its javascript code, and throw error. So everytime you have to assign some html code to innerHTML it needs to be a string.
+
+// document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '<em>';
+
+//storing the value of an element by selecting it, and assigning it to a variable
+
+var x = document.querySelector('#score-0').textContent;
+console.log(x);
+//the above can be k/a as 'getter', since here we're getting and reading the value
+
+
+// use querySelector to chnage the css of some element
+
+document.querySelector('.dice').style.display = 'none';
