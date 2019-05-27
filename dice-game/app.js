@@ -20,8 +20,8 @@ GAME RULES:
 
 var scores, roundScore, activePlayer;
 
-scores = [0, 0];
-roundScore = 0;
+scores = [0, 0]; //global score
+roundScore = 0; //current score
 activePlayer = 0; //0 first player and 1 second player
 
 // use querySelector to change the css of some element
@@ -52,23 +52,40 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         // display the result as current score
         document.querySelector('#current-' + activePlayer).textContent = roundScore;
     } else {
-        // next player
-        activePlayer = activePlayer === 0 ? 1 : 0;
-        roundScore = 0;
-
-        document.getElementById('current-0').textContent = 0;
-        document.getElementById('current-1').textContent = 0;
-
-        // removing and adding classes
-        // document.querySelector('.player-0-panel').classList.remove('active');
-        // document.querySelector('.player-1-panel').classList.add('active');
-
-        //toggle classes
-        document.querySelector('.player-0-panel').classList.toggle('active');
-        document.querySelector('.player-1-panel').classList.toggle('active');
-
-        // hide the dice when value = 1
-        document.querySelector('.dice').style.display = 'none';
+        nextPlayer();
     }
 })
 
+// implementing hold event listener
+document.querySelector('.btn-hold').addEventListener('click', function () {
+    // add CURRENT score to GLOBAL score
+    scores[activePlayer] += roundScore;
+    //scores[activePlayer] = scores[activePlayer] + roundScore;
+
+    // update UI
+    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+
+    nextPlayer();
+
+    // check if player wins the game
+})
+
+function nextPlayer() {
+    // next player
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    roundScore = 0;
+
+    document.getElementById('current-0').textContent = 0;
+    document.getElementById('current-1').textContent = 0;
+
+    // removing and adding classes
+    // document.querySelector('.player-0-panel').classList.remove('active');
+    // document.querySelector('.player-1-panel').classList.add('active');
+
+    //toggle classes
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+
+    // hide the dice when value = 1
+    document.querySelector('.dice').style.display = 'none';
+}
