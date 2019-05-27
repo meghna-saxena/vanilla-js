@@ -48,3 +48,38 @@ If we want value b/w 1-6, multiply Math.random() by 6
 so Math.random() * 6 which gives value b/w 0-5. To get value b/w 1-6, add 1 to it; `(Math.random() * 6) + 1`
 
 `Math.floor()` removes decimal point and give whole no.
+
+____________
+
+### Notes:
+
+Selecting the element dynamically
+
+```
+document.querySelector('#current-' + activePlayer).textContent = dice;
+```
+
+the above can be k/a as `setter`, since here we're setting the value
+
+> To change the content of html element, there are 2 ways:
+
+    1. `textContent`, which changes to plain text
+    
+    2. `innerHTML`, for putting some html also in the content. We need to write the content in quotes (''), otherwise javascript parser will think its javascript code, and throw error. So everytime you have to assign some html code to innerHTML it needs to be a string.
+
+`document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '<em>';`
+
+- Storing the value of an element by selecting it, and assigning it to a variable
+
+```
+var x = document.querySelector('#score-0').textContent;
+console.log(x);
+```
+^ The above can be k/a as `getter`, since here we're getting and reading the value
+
+
+- Use querySelector to change the css of some element
+
+```
+document.querySelector('.dice').style.display = 'none';
+```

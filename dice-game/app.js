@@ -65,6 +65,6 @@ console.log(x);
 //the above can be k/a as 'getter', since here we're getting and reading the value
 
 
-// use querySelector to chnage the css of some element
+// use querySelector to change the css of some element
 
 document.querySelector('.dice').style.display = 'none';
