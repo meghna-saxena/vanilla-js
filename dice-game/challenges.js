@@ -18,7 +18,7 @@ Change the game to follow these rules:
 */
 
 
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, lastDice;
 
 init();
 
@@ -30,12 +30,22 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         diceDOM.style.display = 'block';
         diceDOM.src = './images/dice-' + dice + '.png';
 
-        if (dice !== 1) {
+        if (dice === 6 && lastDice === 6) {
+            // Player loses score
+            scores[activePlayer] = 0;
+
+            document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer]; //0
+
+            nextPlayer();   
+        } else if (dice !== 1) {
             roundScore += dice;
+
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
         } else {
             nextPlayer();
         }
+
+        lastDice = dice;
     }
 })
 
