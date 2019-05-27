@@ -20,18 +20,7 @@ GAME RULES:
 
 var scores, roundScore, activePlayer;
 
-scores = [0, 0]; //global score
-roundScore = 0; //current score
-activePlayer = 0; //0 first player and 1 second player
-
-// use querySelector to change the css of some element
-document.querySelector('.dice').style.display = 'none';
-
-// assigning initial value to current score and global score
-document.getElementById('score-0').textContent = 0;
-document.getElementById('score-1').textContent = 0;
-document.getElementById('current-0').textContent = 0;
-document.getElementById('current-1').textContent = 0;
+init();
 
 // setting up event handler to roll the dice and update the current score
 document.querySelector('.btn-roll').addEventListener('click', function () {
@@ -66,7 +55,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
     // check if player wins the game
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= 10) {
         document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
 
         document.querySelector('.dice').style.display = 'none';
@@ -95,4 +84,42 @@ function nextPlayer() {
 
     // hide the dice when value = 1
     document.querySelector('.dice').style.display = 'none';
+}
+
+// add event listener for new game btn
+// document.querySelector('.btn-new').addEventListener('click', function () {
+//     init();
+// })
+
+document.querySelector('.btn-new').addEventListener('click', init);
+
+function init() {
+    // scores = [0, 0]; //global score
+    // roundScore = 0; //current score
+    // activePlayer = 0; //0 first player and 1 second player
+    scores = [0, 0];
+    activePlayer = 0;
+    roundScore = 0;
+
+    // use querySelector to change the css of some element
+    document.querySelector('.dice').style.display = 'none';
+
+    // assigning initial value to current score and global score
+    document.getElementById('score-0').textContent = 0;
+    document.getElementById('score-1').textContent = 0;
+    document.getElementById('current-0').textContent = 0;
+    document.getElementById('current-1').textContent = 0;
+
+    // rename it a name1 and name2
+    document.getElementById('name-0').textContent = 'Player 1';
+    document.getElementById('name-1').textContent = 'Player 2';
+
+    document.querySelector('.player-0-panel').classList.remove('winner');
+    document.querySelector('.player-1-panel').classList.remove('winner');
+
+    document.querySelector('.player-0-panel').classList.remove('active');
+    document.querySelector('.player-1-panel').classList.remove('active');
+
+    // add active class to first player
+    document.querySelector('.player-0-panel').classList.add('active');
 }
