@@ -349,3 +349,16 @@ function init() {
 }
 
 ```
+
+___________
+
+## Finishing touches: State Variables
+
+- What is a state variable, how to use it, and why?
+state variable tells us the condition of a system, we need it to remember something or state of something.
+
+here, we want to remember, isGamePlaying or isGameNotPlaying
+
+- Set gamePlaying = true inside init() method;
+- in other event handlers check is gamePlaying = true;
+- when winner is decided set gamePlaying = false;

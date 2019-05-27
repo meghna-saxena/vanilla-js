@@ -18,51 +18,56 @@ GAME RULES:
 // var roundScore = 0;
 // it is just one value, because one round score at a time
 
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, gamePlaying;
 
 init();
 
 // setting up event handler to roll the dice and update the current score
 document.querySelector('.btn-roll').addEventListener('click', function () {
-    // 1. random number
-    var dice = Math.floor(Math.random() * 6) + 1;
+    if (gamePlaying) {
+        // 1. random number
+        var dice = Math.floor(Math.random() * 6) + 1;
 
-    // 2. Display the result
-    var diceDOM = document.querySelector('.dice');
-    diceDOM.style.display = 'block';
-    diceDOM.src = './images/dice-' + dice + '.png';
+        // 2. Display the result
+        var diceDOM = document.querySelector('.dice');
+        diceDOM.style.display = 'block';
+        diceDOM.src = './images/dice-' + dice + '.png';
 
-    // 3. Update the round score, only if the roll no. was not 1
-    if (dice !== 1) {
-        // add score
-        roundScore += dice;
-        // roundScore = roundScore + dice;
+        // 3. Update the round score, only if the roll no. was not 1
+        if (dice !== 1) {
+            // add score
+            roundScore += dice;
+            // roundScore = roundScore + dice;
 
-        // display the result as current score
-        document.querySelector('#current-' + activePlayer).textContent = roundScore;
-    } else {
-        nextPlayer();
+            // display the result as current score
+            document.querySelector('#current-' + activePlayer).textContent = roundScore;
+        } else {
+            nextPlayer();
+        }
     }
 })
 
 // implementing hold event listener and update the global score
 document.querySelector('.btn-hold').addEventListener('click', function () {
-    // add CURRENT score to GLOBAL score
-    scores[activePlayer] += roundScore;
-    //scores[activePlayer] = scores[activePlayer] + roundScore;
+    if (gamePlaying) {
+        // add CURRENT score to GLOBAL score
+        scores[activePlayer] += roundScore;
+        //scores[activePlayer] = scores[activePlayer] + roundScore;
 
-    // update UI
-    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+        // update UI
+        document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
-    // check if player wins the game
-    if (scores[activePlayer] >= 10) {
-        document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+        // check if player wins the game
+        if (scores[activePlayer] >= 10) {
+            document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+            document.querySelector('.dice').style.display = 'none';
+            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
 
-        document.querySelector('.dice').style.display = 'none';
-        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-    } else {
-        nextPlayer();
+            gamePlaying = false;
+        } else {
+            nextPlayer();
+        }
     }
 })
 
@@ -100,6 +105,7 @@ function init() {
     scores = [0, 0];
     activePlayer = 0;
     roundScore = 0;
+    gamePlaying = true;
 
     // use querySelector to change the css of some element
     document.querySelector('.dice').style.display = 'none';
