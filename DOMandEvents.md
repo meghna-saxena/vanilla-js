@@ -363,4 +363,29 @@ here, we want to remember, isGamePlaying or isGameNotPlaying
 - assign gamePlaying = true inside init() method;
 - in other event handlers check is gamePlaying = true;
 - when winner is decided set gamePlaying = false;
+______
 
+Note:
+To center on the page:
+
+```
+
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+
+```
+
+Remove outline onfocus from input
+
+```
+
+.final-score:focus { outline: none; }
+
+```
+
+To get the value from input element, use `.value` instead of textContent or innerHTML:
+
+```
+ var input = document.querySelector('.final-score').value;
+ ```
