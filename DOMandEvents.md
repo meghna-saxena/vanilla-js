@@ -19,10 +19,7 @@ We use javascript methods that allows to manipulate DOM and change webpage, and 
 For positioning,  left: 50%; just sets the top left corner of any element to the center of its parent.  If you stopped here, and did not add anything else, only the LEFT SIDE of the dice would move to the center of the parent container.
 
 
-
 Now when you add  transform: translateX(-50%);  it effectively centers the element (dice in this case) because it is saying: "move me left 50% of my computed width".  Therefore no matter the width of the element you are trying to center, it will do so correctly because of the percentage.
-
-
 
 So stepwise:
 
@@ -42,6 +39,11 @@ What will you learn -
 - How to change CSS styles?
 
 
+In order to create dice, calculate random number.
+get no. b/w 1-6
+
+`dice = Math.floor(Math.random() * 6) + 1;`
+
 > Extra: Math.random() gives a random no. b/w 0-1
 
 If we want value b/w 1-6, multiply Math.random() by 6
@@ -52,6 +54,14 @@ so Math.random() * 6 which gives value b/w 0-5. To get value b/w 1-6, add 1 to i
 ____________
 
 ### Notes:
+
+The object that gives access to DOM is document object.
+
+`document.querySelector()` selects the first element it finds
+here the element with the given id
+to change the content of the element use `textContent` method
+
+`document.querySelector('#current-0').textContent = dice;`
 
 Selecting the element dynamically
 
