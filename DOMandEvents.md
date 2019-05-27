@@ -167,3 +167,7 @@ Dont use hash before the id, since it only accepts id, so just name is enough
 Quirks:
 - Select the src attibute of img element
  `diceDOM.src = 'dice-' + dice + '.png';`
+
+__________
+
+## Updating score and changing the active player
